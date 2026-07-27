@@ -65,6 +65,7 @@ export const RiskCalculator: React.FC = () => {
                   <span className="absolute left-2 top-2 text-xs text-slate-400 font-mono">(a)</span>
                   <input 
                     type="number" 
+                    aria-label="a: Treatment group, bad outcome"
                     value={inputs.a} 
                     onChange={(e) => setInputs({...inputs, a: Number(e.target.value)})}
                     className="w-full p-2 pl-8 border border-slate-300 rounded bg-indigo-50/50 focus:ring-2 focus:ring-indigo-500"
@@ -74,6 +75,7 @@ export const RiskCalculator: React.FC = () => {
                   <span className="absolute left-2 top-2 text-xs text-slate-400 font-mono">(b)</span>
                   <input 
                     type="number" 
+                    aria-label="b: Treatment group, good outcome"
                     value={inputs.b} 
                     onChange={(e) => setInputs({...inputs, b: Number(e.target.value)})}
                     className="w-full p-2 pl-8 border border-slate-300 rounded bg-indigo-50/50 focus:ring-2 focus:ring-indigo-500"
@@ -88,6 +90,7 @@ export const RiskCalculator: React.FC = () => {
                   <span className="absolute left-2 top-2 text-xs text-slate-400 font-mono">(c)</span>
                   <input 
                     type="number" 
+                    aria-label="c: Control group, bad outcome"
                     value={inputs.c} 
                     onChange={(e) => setInputs({...inputs, c: Number(e.target.value)})}
                     className="w-full p-2 pl-8 border border-slate-300 rounded bg-slate-50 focus:ring-2 focus:ring-slate-500"
@@ -97,6 +100,7 @@ export const RiskCalculator: React.FC = () => {
                   <span className="absolute left-2 top-2 text-xs text-slate-400 font-mono">(d)</span>
                   <input 
                     type="number" 
+                    aria-label="d: Control group, good outcome"
                     value={inputs.d} 
                     onChange={(e) => setInputs({...inputs, d: Number(e.target.value)})}
                     className="w-full p-2 pl-8 border border-slate-300 rounded bg-slate-50 focus:ring-2 focus:ring-slate-500"

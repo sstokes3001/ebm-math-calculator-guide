@@ -2,19 +2,19 @@
 
 ## Resume here
 
-**State (2026-07-27):** Shipped React/Vite EBM calculator site (Vercel). Stable and
-untouched since 2026-02-08 — this is a finished tool in maintenance, not active work.
-`npm run build` (tsc && vite build) passes, live-verified 2026-07-27. Calculators:
-confidence intervals, risk (RR/ARR/NNT), odds ratio, diagnostic testing
-(sens/spec/PPV/NPV/LR).
+**State (2026-07-27):** Shipped React/Vite EBM calculator site (Vercel), in
+maintenance. **Vitest layer added 2026-07-27** (IMPROVEMENT_PLAN Session 3b, approved
+2026-07-27): 17 tests across 4 files — one per calculator (CI, risk, odds, diagnostic
+testing), each driving the real component with hand-worked textbook examples.
+Live-verified 2026-07-27: `npm test` 17 pass; `npm run build` passes; mutation check
+(transposed RR numerator) turned 4 tests red, then reverted green.
 
-**Next task:** add the Vitest unit layer — **APPROVED by Samantha 2026-07-27**,
-scheduled as IMPROVEMENT_PLAN Session 3b. Declare and install vitest +
-@testing-library/react, one test file per calculator with 2-3 independently-known
-worked examples, add `npm test` to package.json scripts and to the CLAUDE.md gate.
+**Next task:** none scheduled. Session 3b work here is done; the branch
+`feat/vitest-unit-layer` merges to main at wrapup.
 
 **Model/effort:** Sonnet is fine for UI/copy work. Escalate to Opus for anything that
-changes a displayed NUMBER — the arithmetic is the product.
+changes a displayed NUMBER — the arithmetic is the product. If a formula changes,
+recompute the test's worked example BY HAND — never paste the app's own output.
 
 **Launch command:**
 ```
@@ -23,37 +23,17 @@ cd ~/code_projects/ebm-math-calculator-guide && npm install && npm run dev
 
 **Real-consumer verification:**
 ```
-npm run build && npm run preview
+npm test && npm run build && npm run preview
 ```
 Then hand-work one calculator with a 2x2 whose RR/ARR/NNT you already know and confirm
 the displayed result. Compiling is not computing.
 
 ---
 
-## Open findings (IMPROVEMENT_PLAN Session 2b sweep, 2026-07-27)
+## Open findings
 
-Gate verdict: **compiles, but nothing checks the math.**
-
-1. **No tests at all — DECIDED 2026-07-27: Samantha APPROVED the Vitest layer**
-   (IMPROVEMENT_PLAN Session 3b). The finding below is kept for its rationale; the
-   scope question it raised is settled. No test runner is declared
-   or installed (devDependencies are `@types/node`, `@vitejs/plugin-react`, `typescript`,
-   `vite` only). PROJECT_STANDARDS.md 2 wants TDD + 80% coverage + E2E for a shipped web
-   app. The risk is specific, not theoretical: every calculator is arithmetic that
-   clinicians and students read as authoritative, and a swapped numerator/denominator
-   would compile and typecheck perfectly clean. The cheap version is a Vitest unit file
-   per calculator with 2-3 worked examples each — a few hours, and it would catch the
-   only failure mode that actually matters here. Deferred to Samantha because adding a
-   test stack to a finished, stable tool is a scope call, not a defect fix — and
-   that call has now been made: yes, build it (Session 3b).
-2. **No `vercel.json`** — deploy and cache behaviour are entirely platform defaults
-   (PROJECT_STANDARDS.md 3 wants a deliberate choice).
-3. **Stale by 5+ months** (last commit 2026-02-08). Fine for a finished tool; noted so
-   the date is not mistaken for neglect of active work.
-
-Fixed this session: `package-lock.json` was UNTRACKED with no `.gitignore` rule
-excluding it — an oversight, and a reproducibility break, since `npm install` on another
-machine could resolve different transitive versions than the ones this build was verified
-against. Now committed. Also added the quality-gate and real-consumer sections to
-CLAUDE.md, including an explicit warning not to read a green build as evidence the
-arithmetic is right.
+1. **No `vercel.json`** — deploy and cache behaviour are entirely platform defaults
+   (PROJECT_STANDARDS.md 3 wants a deliberate choice). Not in Session 3b scope (only
+   the study-guides site got cache headers); decide when next touching deploy config.
+2. **Stale-tool caveat retired 2026-07-27** — the "no tests at all" finding from the
+   2026-07-27 Session 2b sweep is resolved by the Vitest layer above.

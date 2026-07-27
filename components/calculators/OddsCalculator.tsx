@@ -56,6 +56,7 @@ export const OddsCalculator: React.FC = () => {
                   <span className="absolute left-2 top-2 text-xs text-slate-400 font-mono">(a)</span>
                   <input 
                     type="number" 
+                    aria-label="a: Exposed cases"
                     value={inputs.a} 
                     onChange={(e) => setInputs({...inputs, a: Number(e.target.value)})}
                     className="w-full p-2 pl-8 border border-slate-300 rounded bg-orange-50/50 focus:ring-2 focus:ring-orange-500"
@@ -65,6 +66,7 @@ export const OddsCalculator: React.FC = () => {
                   <span className="absolute left-2 top-2 text-xs text-slate-400 font-mono">(b)</span>
                   <input 
                     type="number" 
+                    aria-label="b: Exposed controls"
                     value={inputs.b} 
                     onChange={(e) => setInputs({...inputs, b: Number(e.target.value)})}
                     className="w-full p-2 pl-8 border border-slate-300 rounded bg-slate-50 focus:ring-2 focus:ring-slate-500"
@@ -79,6 +81,7 @@ export const OddsCalculator: React.FC = () => {
                   <span className="absolute left-2 top-2 text-xs text-slate-400 font-mono">(c)</span>
                   <input 
                     type="number" 
+                    aria-label="c: Not exposed cases"
                     value={inputs.c} 
                     onChange={(e) => setInputs({...inputs, c: Number(e.target.value)})}
                     className="w-full p-2 pl-8 border border-slate-300 rounded bg-slate-50 focus:ring-2 focus:ring-slate-500"
@@ -88,6 +91,7 @@ export const OddsCalculator: React.FC = () => {
                   <span className="absolute left-2 top-2 text-xs text-slate-400 font-mono">(d)</span>
                   <input 
                     type="number" 
+                    aria-label="d: Not exposed controls"
                     value={inputs.d} 
                     onChange={(e) => setInputs({...inputs, d: Number(e.target.value)})}
                     className="w-full p-2 pl-8 border border-slate-300 rounded bg-slate-50 focus:ring-2 focus:ring-slate-500"

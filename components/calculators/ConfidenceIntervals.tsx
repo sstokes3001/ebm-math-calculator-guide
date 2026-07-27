@@ -90,8 +90,9 @@ export const ConfidenceIntervals: React.FC = () => {
 
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">95% CI Lower Bound</label>
+                <label htmlFor="ci-lower" className="block text-sm font-medium text-slate-700 mb-1">95% CI Lower Bound</label>
                 <input
+                  id="ci-lower"
                   type="number"
                   step="0.1"
                   value={lower}
@@ -101,8 +102,9 @@ export const ConfidenceIntervals: React.FC = () => {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">95% CI Upper Bound</label>
+                <label htmlFor="ci-upper" className="block text-sm font-medium text-slate-700 mb-1">95% CI Upper Bound</label>
                 <input
+                  id="ci-upper"
                   type="number"
                   step="0.1"
                   value={upper}
