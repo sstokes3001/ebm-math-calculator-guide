@@ -34,19 +34,20 @@ npm run clean    # Remove node_modules and dist folders
 ## Quality gate (verified 2026-07-27)
 
 ```bash
+npm test         # vitest run -- 17 pass across 4 files (2026-07-27)
 npm run build    # tsc && vite build -- passes (2026-07-27)
 ```
 
-That is the entire automated gate, and it only proves the app COMPILES. **There are no
-tests in this project** — no test runner is declared or installed, so nothing checks
-that a calculator returns the right number. This matters more here than in most
-projects: every component is arithmetic (RR, ARR, NNT, odds ratios, sensitivity,
-specificity, PPV, NPV, likelihood ratios) that students and clinicians read as
-authoritative, and a transposed numerator would compile perfectly and typecheck clean.
+The Vitest layer (added 2026-07-27, IMPROVEMENT_PLAN Session 3b) renders each
+calculator, drives the 2x2 inputs, clicks Calculate, and asserts the DISPLAYED numbers
+against hand-worked textbook examples — so it checks the arithmetic students actually
+see, not just that the app compiles. One test file per calculator sits next to its
+component (`components/calculators/*.test.tsx`); expected values were computed by hand
+from the formulas below, never copied from the app's own output. Mutation-checked
+2026-07-27: transposing the RR numerator turned 4 tests red.
 
-PROJECT_STANDARDS.md 2 asks for TDD + 80% coverage + E2E on a shipped web app; this
-project meets none of it. Whether to add a test layer is Samantha's scope decision —
-see STATUS.md. Do not read a green `npm run build` as evidence the math is right.
+If you change any formula or displayed number, update the matching worked example BY
+HAND from the formula reference — do not paste the app's new output into the test.
 
 ## Real-consumer verification command
 

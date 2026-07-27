@@ -77,6 +77,7 @@ export const DiagnosticTesting: React.FC = () => {
                   <span className="absolute left-2 top-2 text-xs text-slate-400 font-mono">TP</span>
                   <input 
                     type="number" 
+                    aria-label="TP: True positives"
                     value={inputs.tp} 
                     onChange={(e) => setInputs({...inputs, tp: Number(e.target.value)})}
                     className="w-full p-2 pl-8 border border-slate-300 rounded bg-rose-50/50 focus:ring-2 focus:ring-rose-500"
@@ -86,6 +87,7 @@ export const DiagnosticTesting: React.FC = () => {
                   <span className="absolute left-2 top-2 text-xs text-slate-400 font-mono">FP</span>
                   <input 
                     type="number" 
+                    aria-label="FP: False positives"
                     value={inputs.fp} 
                     onChange={(e) => setInputs({...inputs, fp: Number(e.target.value)})}
                     className="w-full p-2 pl-8 border border-slate-300 rounded bg-slate-50 focus:ring-2 focus:ring-slate-500"
@@ -100,6 +102,7 @@ export const DiagnosticTesting: React.FC = () => {
                   <span className="absolute left-2 top-2 text-xs text-slate-400 font-mono">FN</span>
                   <input 
                     type="number" 
+                    aria-label="FN: False negatives"
                     value={inputs.fn} 
                     onChange={(e) => setInputs({...inputs, fn: Number(e.target.value)})}
                     className="w-full p-2 pl-8 border border-slate-300 rounded bg-slate-50 focus:ring-2 focus:ring-slate-500"
@@ -109,6 +112,7 @@ export const DiagnosticTesting: React.FC = () => {
                   <span className="absolute left-2 top-2 text-xs text-slate-400 font-mono">TN</span>
                   <input 
                     type="number" 
+                    aria-label="TN: True negatives"
                     value={inputs.tn} 
                     onChange={(e) => setInputs({...inputs, tn: Number(e.target.value)})}
                     className="w-full p-2 pl-8 border border-slate-300 rounded bg-emerald-50/50 focus:ring-2 focus:ring-emerald-500"
