@@ -8,7 +8,10 @@ untouched since 2026-02-08 — this is a finished tool in maintenance, not activ
 confidence intervals, risk (RR/ARR/NNT), odds ratio, diagnostic testing
 (sens/spec/PPV/NPV/LR).
 
-**Next task:** none scheduled. The open decision below is the only outstanding item.
+**Next task:** add the Vitest unit layer — **APPROVED by Samantha 2026-07-27**,
+scheduled as IMPROVEMENT_PLAN Session 3b. Declare and install vitest +
+@testing-library/react, one test file per calculator with 2-3 independently-known
+worked examples, add `npm test` to package.json scripts and to the CLAUDE.md gate.
 
 **Model/effort:** Sonnet is fine for UI/copy work. Escalate to Opus for anything that
 changes a displayed NUMBER — the arithmetic is the product.
@@ -31,7 +34,9 @@ the displayed result. Compiling is not computing.
 
 Gate verdict: **compiles, but nothing checks the math.**
 
-1. **No tests at all — DECISION NEEDED (Samantha's call).** No test runner is declared
+1. **No tests at all — DECIDED 2026-07-27: Samantha APPROVED the Vitest layer**
+   (IMPROVEMENT_PLAN Session 3b). The finding below is kept for its rationale; the
+   scope question it raised is settled. No test runner is declared
    or installed (devDependencies are `@types/node`, `@vitejs/plugin-react`, `typescript`,
    `vite` only). PROJECT_STANDARDS.md 2 wants TDD + 80% coverage + E2E for a shipped web
    app. The risk is specific, not theoretical: every calculator is arithmetic that
@@ -39,7 +44,8 @@ Gate verdict: **compiles, but nothing checks the math.**
    would compile and typecheck perfectly clean. The cheap version is a Vitest unit file
    per calculator with 2-3 worked examples each — a few hours, and it would catch the
    only failure mode that actually matters here. Deferred to Samantha because adding a
-   test stack to a finished, stable tool is a scope call, not a defect fix.
+   test stack to a finished, stable tool is a scope call, not a defect fix — and
+   that call has now been made: yes, build it (Session 3b).
 2. **No `vercel.json`** — deploy and cache behaviour are entirely platform defaults
    (PROJECT_STANDARDS.md 3 wants a deliberate choice).
 3. **Stale by 5+ months** (last commit 2026-02-08). Fine for a finished tool; noted so
