@@ -9,8 +9,8 @@ testing), each driving the real component with hand-worked textbook examples.
 Live-verified 2026-07-27: `npm test` 17 pass; `npm run build` passes; mutation check
 (transposed RR numerator) turned 4 tests red, then reverted green.
 
-**Next task:** none scheduled. Session 3b work here is done; the branch
-`feat/vitest-unit-layer` merges to main at wrapup.
+**Next task:** none scheduled. Session 3b work here is done and merged to main
+2026-07-27; push happens at wrapup.
 
 **Model/effort:** Sonnet is fine for UI/copy work. Escalate to Opus for anything that
 changes a displayed NUMBER — the arithmetic is the product. If a formula changes,
