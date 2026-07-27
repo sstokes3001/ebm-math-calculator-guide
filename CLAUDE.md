@@ -31,6 +31,35 @@ npm run typecheck # Check for TypeScript errors
 npm run clean    # Remove node_modules and dist folders
 ```
 
+## Quality gate (verified 2026-07-27)
+
+```bash
+npm run build    # tsc && vite build -- passes (2026-07-27)
+```
+
+That is the entire automated gate, and it only proves the app COMPILES. **There are no
+tests in this project** — no test runner is declared or installed, so nothing checks
+that a calculator returns the right number. This matters more here than in most
+projects: every component is arithmetic (RR, ARR, NNT, odds ratios, sensitivity,
+specificity, PPV, NPV, likelihood ratios) that students and clinicians read as
+authoritative, and a transposed numerator would compile perfectly and typecheck clean.
+
+PROJECT_STANDARDS.md 2 asks for TDD + 80% coverage + E2E on a shipped web app; this
+project meets none of it. Whether to add a test layer is Samantha's scope decision —
+see STATUS.md. Do not read a green `npm run build` as evidence the math is right.
+
+## Real-consumer verification command
+
+The real consumer is the calculator in a browser, so the check is arithmetic, by hand:
+
+```bash
+npm run build && npm run preview
+```
+
+Then work one calculator with numbers whose answer you already know and confirm the
+displayed result. A worked 2x2 with known RR/ARR/NNT is the fastest check; do it for
+any calculator the change touched. Compiling is not computing.
+
 ## Project Structure
 
 ```
