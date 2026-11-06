@@ -1,4 +1,7 @@
 # ebm-math-calculator-guide — STATUS
+Updated: 2026-07-27
+Notion hub: none (maintenance)
+Status: Ongoing
 
 ## Resume here
 
